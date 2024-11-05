@@ -1,0 +1,9 @@
+{
+  "ID": 20000001,
+  "RARITY": 0,
+  "NAME": "Debug Consumable",
+  "DESC": "Consumable Item for Debug",
+  "C_TYPE": 0,
+  "C_EFFECT_BASE": 10,
+  "C_EFFECT_MOD": 1
+}
