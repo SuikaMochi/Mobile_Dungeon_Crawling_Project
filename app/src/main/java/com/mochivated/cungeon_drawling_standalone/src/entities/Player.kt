@@ -6,11 +6,13 @@ import org.json.JSONObject
 class Player() : EntityBase() {
 	private var playerID: Int	= 0
 	
-	fun setPlayerID(id: Int)	{ playerID = id }
-	fun getPlayerID(): Int		{ return playerID }
+	private fun setPlayerID(id: Int)	{ playerID = id }
+	private fun getPlayerID(): Int		{ return playerID }
 	
 	fun loadPlayer(c: Context) {
 		val jsonSave = JSONObject(c.openFileInput("$playerID.sav").bufferedReader().readText())
+		setPlayerID			(jsonSave.getInt("ID"))
+		
 		setEName			(jsonSave.getString("NAME"))
 		setEExperience		(jsonSave.getInt("EXPERIENCE"))
 		setELevel			(jsonSave.getInt("LEVEL"))
