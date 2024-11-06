@@ -9,9 +9,9 @@ open class EntityBase() : Inventory() {
 	private var entityEndurance: Int		= 0
 	private var entityDexterity: Int		= 0
 	
-	private var entityIntelligence: Int		= 0
+	private var entityAttunement: Int		= 0
 	private var entityWisdom: Int			= 0
-	private var entityCharisma: Int			= 0
+	private var entityFaith: Int			= 0
 	
 	private var entityExperience: Int		= 0
 	private var entityLevel: Int			= 0
@@ -21,9 +21,9 @@ open class EntityBase() : Inventory() {
 	fun setEEndurance(eEndurance: Int)		{ entityEndurance = eEndurance }
 	fun setEDexterity(eDexterity: Int)		{ entityDexterity = eDexterity }
 	
-	fun setEIntelligence(eIntelligence: Int){ entityIntelligence = eIntelligence }
+	fun setEAttunement(eAttunement: Int)	{ entityAttunement = eAttunement }
 	fun setEWisdom(eWisdom: Int)			{ entityWisdom = eWisdom }
-	fun setECharisma(eCharisma: Int)		{ entityCharisma = eCharisma }
+	fun setEFaith(eFaith: Int)				{ entityFaith = eFaith }
 	
 	fun setEExperience(eExperience: Int)	{ entityExperience = eExperience }
 	fun setELevel(eLevel: Int)				{ entityLevel = eLevel }
@@ -33,9 +33,9 @@ open class EntityBase() : Inventory() {
 	fun getEEndurance(): Int				{ return entityEndurance }
 	fun getEDexterity(): Int				{ return entityDexterity }
 	
-	fun getEIntelligence(): Int				{ return entityIntelligence }
+	fun getEAttunement(): Int				{ return entityAttunement }
 	fun getEWisdom(): Int					{ return entityWisdom }
-	fun getECharisma(): Int					{ return entityCharisma }
+	fun getEFaith(): Int					{ return entityFaith }
 	
 	fun getEExperience(): Int				{ return entityExperience }
 	fun getELevel(): Int					{ return entityLevel }
