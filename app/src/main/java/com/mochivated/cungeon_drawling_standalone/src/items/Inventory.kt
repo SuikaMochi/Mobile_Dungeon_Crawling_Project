@@ -9,7 +9,7 @@ import com.mochivated.cungeon_drawling_standalone.src.items.tool.ToolItem
 import com.mochivated.cungeon_drawling_standalone.src.items.weapon.WeaponItem
 import java.util.Vector
 
-class Inventory {
+open class Inventory {
 	private var ammoInventory		= Vector<AmmoItem>()
 	private var consumableInventory	= Vector<ConsumableItem>()
 	private var floraInventory		= Vector<FloraItem>()
@@ -20,6 +20,6 @@ class Inventory {
 	private var lastItemAdd:String	= ""
 	private var lastItemRem:String	= ""
 	
-	fun SetLastItemAdd(name: String) { lastItemAdd = name }
-	fun SetLastItemRem(name: String) { lastItemRem = name }
+	fun setLastItemAdd(name: String) { lastItemAdd = name }
+	fun setLastItemRem(name: String) { lastItemRem = name }
 }

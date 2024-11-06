@@ -9,21 +9,21 @@ open class Item(id: Int) {
 	private var iDesc : String	= ""
 	
 	//Setters
-	fun SetID(id: Int)			{ iId = id }
-	fun SetRarity(rarity: Int)	{ iRarity = rarity }
-	fun SetAmount(amount: Int)	{ iAmount = amount }
-	fun AddAmount(amount: Int)	{ iAmount += amount }
-	fun RemAmount(amount: Int)	{ iAmount -= amount }
+	fun setID(id: Int)			{ iId = id }
+	fun setRarity(rarity: Int)	{ iRarity = rarity }
+	fun setAmount(amount: Int)	{ iAmount = amount }
+	fun addAmount(amount: Int)	{ iAmount += amount }
+	fun remAmount(amount: Int)	{ iAmount -= amount }
 	
-	fun SetNAME(name: String)	{ iName = name }
-	fun SetDESC(desc: String)	{ iDesc = desc }
+	fun setNAME(name: String)	{ iName = name }
+	fun setDESC(desc: String)	{ iDesc = desc }
 	
 	//Getters
-	fun GetID(): Int			{return iId}
-	fun GetRarity(): Int		{return iRarity}
-	fun GetAmount(): Int		{return iAmount}
+	fun getID(): Int			{return iId}
+	fun getRarity(): Int		{return iRarity}
+	fun getAmount(): Int		{return iAmount}
 	
-	fun GetName(): String		{return iName}
-	fun GetDesc(): String		{return iDesc}
+	fun getName(): String		{return iName}
+	fun getDesc(): String		{return iDesc}
 	
 }

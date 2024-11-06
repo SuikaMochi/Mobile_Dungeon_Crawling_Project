@@ -7,13 +7,13 @@ class WeaponItem(id: Int) : Item(id) {
 	private var wDamageType: Int	= 0
 	private var wDamageBase: Int	= 0
 	
-	fun SetWType(type: Int)			{ wType = type }
-	fun SetWDamgeType(dType: Int)	{ wDamageType = dType }
-	fun SetWDamgeBase(dBase: Int)	{ wDamageBase = dBase }
+	fun setWType(type: Int)			{ wType = type }
+	fun setWDamageType(dType: Int)	{ wDamageType = dType }
+	fun setWDamageBase(dBase: Int)	{ wDamageBase = dBase }
 	
-	fun GetWType(): Int				{ return wType }
-	fun GetWDamgeType(): Int		{ return wDamageType }
-	fun GetWDamgeBase(): Int		{ return wDamageBase }
+	fun getWType(): Int				{ return wType }
+	fun getWDamageType(): Int		{ return wDamageType }
+	fun getWDamageBase(): Int		{ return wDamageBase }
 	
 	
 }
