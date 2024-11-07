@@ -1,7 +1,9 @@
 package com.mochivated.cungeon_drawling_standalone.src.entities
 
 import android.content.Context
+import android.os.Environment
 import org.json.JSONObject
+import java.io.File
 
 class Player() : EntityBase() {
 	private var playerID: Int		= 1000
