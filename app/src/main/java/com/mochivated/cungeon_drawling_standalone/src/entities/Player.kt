@@ -1,8 +1,13 @@
 package com.mochivated.cungeon_drawling_standalone.src.entities
 
 import android.content.Context
+import android.content.res.AssetManager
+import android.os.Build.VERSION
+import android.os.Build.VERSION_CODES
 import android.os.Environment
+import org.json.JSONArray
 import org.json.JSONObject
+import org.json.JSONString
 import java.io.File
 
 class Player() : EntityBase() {
@@ -24,7 +29,13 @@ class Player() : EntityBase() {
 	}
 	
 	fun loadPlayer(c: Context) {
-		val jsonSave = JSONObject(c.openFileInput("${getPlayerID()}.sav").bufferedReader().readText())
+		val v = c.packageManager.getPackageInfo(c.packageName, 0).versionName
+		val file = File(c.filesDir, "${getPlayerID()}.sav")
+		println("LOADING")
+		println(file.path)
+
+		val jsonSave = JSONArray(file.bufferedReader().readLines().toString()).getJSONObject(0)
+		println(jsonSave)
 		setPlayerID			(jsonSave.getInt("ID"))
 		
 		setEName			(jsonSave.getString("NAME"))
@@ -33,34 +44,43 @@ class Player() : EntityBase() {
 		levelThreshold *= getELevel()
 		
 		setEStrength		(jsonSave.getInt("STRENGTH"))
-		setEEndurance		(jsonSave.getInt("ENDURANCE"))
 		setEDexterity		(jsonSave.getInt("DEXTERITY"))
+		setEEndurance		(jsonSave.getInt("ENDURANCE"))
 		
 		setEAttunement		(jsonSave.getInt("ATTUNEMENT"))
 		setEWisdom			(jsonSave.getInt("WISDOM"))
 		setEFaith			(jsonSave.getInt("FAITH"))
 		
 		loadInventory		(c, jsonSave.getJSONObject("INVENTORY"))
+
+		if (jsonSave.getString("VERSION") != v || jsonSave.getString("VERSION").isNullOrEmpty())
+		{
+			savePlayer(c)
+		}
 	}
 
 	fun savePlayer(c: Context) {
-		val saveJson = """
-			{
-				"NAME": "${getEName()}",
-				"EXPERIENCE": ${getEExperience()},
-				"LEVEL": ${getELevel()},
-				"STRENGTH": ${getEStrength()},
-				"DEXTERITY": ${getEDexterity()},
-				"ENDURANCE": ${getEEndurance()},
-				"ATTUNEMENT": ${getEAttunement()},
-				"WISDOM": ${getEWisdom()},
-				"FAITH": ${getEFaith()},
-				"INVENTORY": ${saveInventory()}
-			}
-		""".trimIndent()
+		val v = c.packageManager.getPackageInfo(c.packageName, 0).versionName
+		val saveJson = """{
+			"VERSION": "$v",
+			"ID": ${getPlayerID()},
+			"NAME": "${getEName()}",
+			"EXPERIENCE": ${getEExperience()},
+			"LEVEL": ${getELevel()},
+			"STRENGTH": ${getEStrength()},
+			"DEXTERITY": ${getEDexterity()},
+			"ENDURANCE": ${getEEndurance()},
+			"ATTUNEMENT": ${getEAttunement()},
+			"WISDOM": ${getEWisdom()},
+			"FAITH": ${getEFaith()},
+			"INVENTORY": ${saveInventory()}
+		}""".trimIndent()
 
-		c.openFileOutput("${getPlayerID()}.sav", Context.MODE_PRIVATE).use {
-			it.write(saveJson.toByteArray())
-		}
+		val file = File(c.filesDir, "${getPlayerID()}.sav")
+		file.createNewFile()
+		file.writeText(JSONObject(saveJson).toString())
+		println("SAVING")
+		println(JSONObject(saveJson).toString())
+		println(file.path)
 	}
 }
