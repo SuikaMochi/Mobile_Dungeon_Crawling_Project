@@ -4,7 +4,7 @@ import android.content.Context
 import org.json.JSONObject
 
 class Player() : EntityBase() {
-	private var playerID: Int		= 0
+	private var playerID: Int		= 1000
 	private var levelThreshold: Int	= 200
 	
 	private fun setPlayerID(id: Int)	{ playerID = id }
