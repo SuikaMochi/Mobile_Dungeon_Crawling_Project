@@ -53,7 +53,7 @@ class Player() : EntityBase() {
 				"ATTUNEMENT": ${getEAttunement()},
 				"WISDOM": ${getEWisdom()},
 				"FAITH": ${getEFaith()},
-				"INVENTORY": 
+				"INVENTORY": ${saveInventory()}
 			}
 		""".trimIndent()
 

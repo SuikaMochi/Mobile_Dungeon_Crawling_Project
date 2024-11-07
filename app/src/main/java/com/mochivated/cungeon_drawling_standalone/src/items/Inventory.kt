@@ -40,4 +40,37 @@ open class Inventory {
 			}
 		}
 	}
+	
+	fun saveInventory(): String {
+		var inv = ""
+		for (ammo in ammoInventory) {
+			inv+=""""${ammo.getID()}": ${ammo.getAmount()},"""
+		}
+		for (cons in consumableInventory) {
+			inv+=""""${cons.getID()}": ${cons.getAmount()},"""
+		}
+		for (flor in floraInventory) {
+			inv+=""""${flor.getID()}": ${flor.getAmount()},"""
+		}
+		for (gear in gearInventory) {
+			inv+=""""${gear.getID()}": ${gear.getAmount()},"""
+		}
+		for (ques in questInventory) {
+			inv+=""""${ques.getID()}": ${ques.getAmount()},"""
+		}
+		for (tool in toolInventory) {
+			inv+=""""${tool.getID()}": ${tool.getAmount()},"""
+		}
+		for (weap in weaponInventory) {
+			inv+=""""${weap.getID()}": ${weap.getAmount()},"""
+		}
+		
+		val saveJson = """
+			{
+				${inv.trimEnd(',')}
+			}
+		""".trimIndent()
+		
+		return saveJson
+	}
 }
