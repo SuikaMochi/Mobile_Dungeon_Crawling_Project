@@ -2,6 +2,10 @@ package com.mochivated.cungeon_drawling_standalone
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.SeekBar
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -22,6 +26,24 @@ class MainActivity : AppCompatActivity() {
 		val failScreen: View = findViewById(R.id.fail_screen)		//Used for debugging
 		val successScreen: View = findViewById(R.id.success_screen)	//Used for debugging
 		val characterCreatorScreen: View = findViewById(R.id.character_creator_screen)
+		val saveButton: Button = findViewById(R.id.saveButton)
+
+		saveButton.setOnClickListener {
+			try {
+				player.setEName(findViewById<EditText>(R.id.nameInput).text.toString())
+				player.setEStrength(findViewById<SeekBar>(R.id.strenthBar).progress)
+				player.setEDexterity(findViewById<SeekBar>(R.id.dexterityBar).progress)
+				player.setEEndurance(findViewById<SeekBar>(R.id.enduranceBar).progress)
+				player.setEAttunement(findViewById<SeekBar>(R.id.attunementBar).progress)
+				player.setEFaith(findViewById<SeekBar>(R.id.faithBar).progress)
+				player.setEWisdom(findViewById<SeekBar>(R.id.wisdomBar).progress)
+				player.setELevel(1)
+				player.savePlayer(baseContext)
+				switchTo(successScreen)
+			} catch (_: Exception) {
+				switchTo(failScreen)
+			}
+		}
 		
 		loadingScreen.run {
 			loadingScreen.visibility = View.VISIBLE
