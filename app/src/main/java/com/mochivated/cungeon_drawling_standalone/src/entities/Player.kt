@@ -1,13 +1,8 @@
 package com.mochivated.cungeon_drawling_standalone.src.entities
 
 import android.content.Context
-import android.content.res.AssetManager
-import android.os.Build.VERSION
-import android.os.Build.VERSION_CODES
-import android.os.Environment
 import org.json.JSONArray
 import org.json.JSONObject
-import org.json.JSONString
 import java.io.File
 
 class Player() : EntityBase() {
