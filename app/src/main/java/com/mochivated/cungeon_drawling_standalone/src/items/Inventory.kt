@@ -67,7 +67,7 @@ open class Inventory {
 		
 		val saveJson = """
 			{
-				${inv.trimEnd(',')}
+				$inv
 			}
 		""".trimIndent()
 		

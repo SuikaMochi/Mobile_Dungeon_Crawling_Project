@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.mochivated.cungeon_drawling_standalone.src.entities.Player
 import kotlinx.coroutines.runBlocking
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 	private val player: Player = Player()
@@ -26,7 +27,10 @@ class MainActivity : AppCompatActivity() {
 		val failScreen: View = findViewById(R.id.fail_screen)		//Used for debugging
 		val successScreen: View = findViewById(R.id.success_screen)	//Used for debugging
 		val characterCreatorScreen: View = findViewById(R.id.character_creator_screen)
+		val startScreen: View = findViewById(R.id.start_screen)
+
 		val saveButton: Button = findViewById(R.id.saveButton)
+		val startButton: Button = findViewById(R.id.startButton)
 
 		saveButton.setOnClickListener {
 			try {
@@ -38,27 +42,31 @@ class MainActivity : AppCompatActivity() {
 				player.setEFaith(findViewById<SeekBar>(R.id.faithBar).progress)
 				player.setEWisdom(findViewById<SeekBar>(R.id.wisdomBar).progress)
 				player.setELevel(1)
-				player.savePlayer(baseContext)
+				player.savePlayer(applicationContext)
 				switchTo(successScreen)
-			} catch (_: Exception) {
+			} catch (e: Exception) {
 				switchTo(failScreen)
+				println(e.message)
 			}
 		}
-		
+
+		startButton.setOnClickListener {
+			try {
+				player.loadPlayer(applicationContext)
+				switchTo(successScreen)
+			} catch (e: Exception) {
+				switchTo(characterCreatorScreen)
+				println(e.message)
+			}
+		}
+
 		loadingScreen.run {
 			loadingScreen.visibility = View.VISIBLE
 			openScreen = loadingScreen
 		}
-		
-		runBlocking {
-			try {
-				player.loadPlayer(baseContext)
-				switchTo(successScreen)
-			} catch (_: Exception) {
-				switchTo(characterCreatorScreen)
-			}
-		}
-		
+
+		switchTo(startScreen)
+
 		ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
 			val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
 			v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
