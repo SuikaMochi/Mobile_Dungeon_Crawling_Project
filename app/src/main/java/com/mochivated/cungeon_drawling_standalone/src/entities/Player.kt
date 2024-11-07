@@ -45,10 +45,12 @@ class Player() : EntityBase() {
 		setEAttunement		(jsonSave.getInt("ATTUNEMENT"))
 		setEWisdom			(jsonSave.getInt("WISDOM"))
 		setEFaith			(jsonSave.getInt("FAITH"))
-		
+
+
+
 		loadInventory		(c, jsonSave.getJSONObject("INVENTORY"))
 
-		if (jsonSave.getString("VERSION") != v || jsonSave.getString("VERSION").isNullOrEmpty())
+		if (jsonSave.getString("VERSION") != v)
 		{
 			savePlayer(c)
 		}
