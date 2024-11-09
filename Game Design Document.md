@@ -55,17 +55,16 @@ enemy_2.” Instead, it’s better to make statements like, “The Lazarus Fight
 
 ## Game Play Outline
 This outline will vary depending on the type of game.
-• Opening the game application
-• Game options
-• Story synopsis
-• Modes
-• Game elements
-• Game levels
-• Player’s controls
-• Winning
-• Losing
-• End
-• Why is all this fun?
+* Game options
+* Story synopsis
+* Modes
+* Game elements
+* Game levels
+* Player’s controls
+* Winning
+* Losing
+* End
+* Why is all this fun?
 
 ## Key Features
 Key features are a list of game elements that are attractive to the player.
@@ -111,18 +110,18 @@ A suggested list may include:
 
 ## Player Properties
 # Statistics
--Strength: Scaling for Strength based actions and ----
---(Example: Attacking with a greatsword, moving a builder)
--Dexterity: Scaling for Dexterity based actions and ----
---(Example: Attacking for daggers, dodging a trap)
--Endurance: How far the player can go without resting and eating, increases health, carry capacity
---(Example: Low endurance makes the player take more damage, unable to carry more items)
--Attunement: Scaling for Magic based actions and the max amount of Mana
---(Example: )
--Faith: Scaling for 
---(Example: )
--Wisdom: Scaling for 
---(Example: )
+* Strength: Scaling for Strength based actions and ----
+* (Example: Attacking with a greatsword, moving a builder)
+* Dexterity: Scaling for Dexterity based actions and ----
+* (Example: Attacking for daggers, dodging a trap)
+* Endurance: How far the player can go without resting and eating, increases health, carry capacity
+* (Example: Low endurance makes the player take more damage, unable to carry more items)
+* Attunement: Scaling for Magic based actions and the max amount of Mana
+* (Example: )
+* Faith: Scaling for
+* (Example: )
+* Wisdom: Scaling for
+* (Example: )
 
 # Feat
 -to be discussed
