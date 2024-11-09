@@ -7,18 +7,18 @@ The first number of the ID indicates the type of item.
 As following:
 ```
 0...	->	Unused
-1...	->	Consumables	->	Items that can be consumed, potions, etc.
-2...	->	Weapons		->	Spears, swords, knives, crossbows, etc.
-3...	->	Gear		->	Helmets, chest plates, shields, accessories, etc.
-4...	->	Flora		->	Plants, mushrooms, etc. to be cooked or for alchemy
-5...	->	Tools		->	Mining, cooking, lighting, etc.
-6...	->	Ammunition	->	Throwing items or ammunition for bows, etc.		
-7...	->	Unused		
+1...	->	Ammunition	->	Throwing items or ammunition for bows, etc.		
+2...	->	Consumables	->	Items that can be consumed, potions, etc.
+3...	->	Flora		->	Plants, mushrooms, etc. to be cooked or for alchemy
+4...	->	Gear		->	Helmets, chest plates, shields, accessories, etc.
+5...	->	Quest		->	Quest and important story items
+6...	->	Tools		->	Mining, cooking, lighting, etc.
+7...	->	Weapons		->	Spears, swords, knives, crossbows, etc.
 8...	->	Unused		
-9...	->	Quest		->	Quest and important story items
+9...	->	Unused		
 ```
 
-Item rarity modifier for shops and random overworld finds
+Item rarity modifier for shops and random drops
 ### Item rarity
 ```
 0		->	Common

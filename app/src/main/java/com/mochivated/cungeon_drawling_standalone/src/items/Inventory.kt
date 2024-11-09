@@ -1,5 +1,6 @@
 package com.mochivated.cungeon_drawling_standalone.src.items
 
+import android.content.Context
 import com.mochivated.cungeon_drawling_standalone.src.items.ammo.AmmoItem
 import com.mochivated.cungeon_drawling_standalone.src.items.consumable.ConsumableItem
 import com.mochivated.cungeon_drawling_standalone.src.items.flora.FloraItem
@@ -7,6 +8,8 @@ import com.mochivated.cungeon_drawling_standalone.src.items.gear.GearItem
 import com.mochivated.cungeon_drawling_standalone.src.items.quest.QuestItem
 import com.mochivated.cungeon_drawling_standalone.src.items.tool.ToolItem
 import com.mochivated.cungeon_drawling_standalone.src.items.weapon.WeaponItem
+import org.json.JSONObject
+import org.json.JSONTokener
 import java.util.Vector
 
 open class Inventory {
@@ -22,4 +25,52 @@ open class Inventory {
 	
 	fun setLastItemAdd(name: String) { lastItemAdd = name }
 	fun setLastItemRem(name: String) { lastItemRem = name }
+	
+	fun loadInventory(c: Context, jsonInventory: JSONObject) {
+		for (item in jsonInventory.keys()) {
+			val i: Int = item[0].code
+			when (i) {
+				1 -> ammoInventory.addElement(AmmoItem(c, item.toInt()))
+				2 -> consumableInventory.addElement(ConsumableItem(c, item.toInt()))
+				3 -> floraInventory.addElement(FloraItem(c, item.toInt()))
+				4 -> gearInventory.addElement(GearItem(c, item.toInt()))
+				5 -> questInventory.addElement(QuestItem(c, item.toInt()))
+				6 -> toolInventory.addElement(ToolItem(c, item.toInt()))
+				7 -> weaponInventory.addElement(WeaponItem(c, item.toInt()))
+			}
+		}
+	}
+	
+	fun saveInventory(): String {
+		var inv = ""
+		for (ammo in ammoInventory) {
+			inv+=""""${ammo.getID()}": ${ammo.getAmount()},"""
+		}
+		for (cons in consumableInventory) {
+			inv+=""""${cons.getID()}": ${cons.getAmount()},"""
+		}
+		for (flor in floraInventory) {
+			inv+=""""${flor.getID()}": ${flor.getAmount()},"""
+		}
+		for (gear in gearInventory) {
+			inv+=""""${gear.getID()}": ${gear.getAmount()},"""
+		}
+		for (ques in questInventory) {
+			inv+=""""${ques.getID()}": ${ques.getAmount()},"""
+		}
+		for (tool in toolInventory) {
+			inv+=""""${tool.getID()}": ${tool.getAmount()},"""
+		}
+		for (weap in weaponInventory) {
+			inv+=""""${weap.getID()}": ${weap.getAmount()},"""
+		}
+		
+		val saveJson = """
+			{
+				$inv
+			}
+		""".trimIndent()
+		
+		return saveJson
+	}
 }
