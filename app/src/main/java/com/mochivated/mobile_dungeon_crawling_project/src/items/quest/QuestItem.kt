@@ -1,7 +1,7 @@
-package com.mochivated.cungeon_drawling_standalone.src.items.quest
+package com.mochivated.mobile_dungeon_crawling_project.src.items.quest
 
 import android.content.Context
-import com.mochivated.cungeon_drawling_standalone.src.items.Item
+import com.mochivated.mobile_dungeon_crawling_project.src.items.Item
 import org.json.JSONObject
 
 class QuestItem(c: Context, id: Int): Item(id) {

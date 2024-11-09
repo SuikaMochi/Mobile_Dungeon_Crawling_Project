@@ -1,4 +1,4 @@
-package com.mochivated.cungeon_drawling_standalone.src.entities
+package com.mochivated.mobile_dungeon_crawling_project.src.entities
 
 import android.content.Context
 import org.json.JSONArray
@@ -7,22 +7,31 @@ import java.io.File
 
 class Player() : EntityBase() {
 	private var playerID: Int		= 1000
-	private var levelThreshold: Int	= 200
+	private var levelThreshold: Int	= 100
 	
 	private fun setPlayerID(id: Int)	{ playerID = id }
 	private fun getPlayerID(): Int		{ return playerID }
 
-	fun addExperience(exp: Int)			{
+	fun addExperience(exp: Int) {
 		setEExperience(getEExperience() + exp)
 		if (getEExperience() >= levelThreshold)
 		{
 			setELevel(getELevel() + 1)
 			val leftover = getEExperience() - levelThreshold
 			setEExperience(leftover)
-			levelThreshold *= getELevel()
+			levelThreshold = 100 * getELevel()
 		}
 	}
-	
+
+	fun loseExperience(loss: Int) { //Used for variable difficulty setting "Lose EXP progress on death"
+		when (loss)
+		{
+			1 -> setEExperience(getEExperience())	//No loss
+			2 -> setEExperience(getEExperience()/2)	//Lose half
+			3 -> setEExperience(0)					//Lose all
+		}
+	}
+
 	fun loadPlayer(c: Context) {
 		val v = c.packageManager.getPackageInfo(c.packageName, 0).versionName
 		val file = File(c.filesDir, "${getPlayerID()}.sav")
@@ -45,8 +54,6 @@ class Player() : EntityBase() {
 		setEAttunement		(jsonSave.getInt("ATTUNEMENT"))
 		setEWisdom			(jsonSave.getInt("WISDOM"))
 		setEFaith			(jsonSave.getInt("FAITH"))
-
-
 
 		loadInventory		(c, jsonSave.getJSONObject("INVENTORY"))
 

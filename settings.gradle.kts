@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Cungeon_Drawling_Standalone"
+rootProject.name = "Mobile_Dungeon_Crawling_Project"
 include(":app")
