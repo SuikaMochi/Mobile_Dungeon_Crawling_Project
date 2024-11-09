@@ -1,4 +1,4 @@
-package com.mochivated.cungeon_drawling_standalone
+package com.mochivated.mobile_dungeon_crawling_project
 
 import android.os.Bundle
 import android.view.View
@@ -9,7 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.mochivated.cungeon_drawling_standalone.src.entities.Player
+import com.mochivated.mobile_dungeon_crawling_project.src.entities.Player
 
 class MainActivity : AppCompatActivity() {
 	private val player: Player = Player()
