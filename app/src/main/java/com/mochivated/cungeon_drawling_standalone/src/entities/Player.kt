@@ -7,7 +7,7 @@ import java.io.File
 
 class Player() : EntityBase() {
 	private var playerID: Int		= 1000
-	private var levelThreshold: Int	= 200
+	private var levelThreshold: Int	= 100
 	
 	private fun setPlayerID(id: Int)	{ playerID = id }
 	private fun getPlayerID(): Int		{ return playerID }
@@ -19,10 +19,10 @@ class Player() : EntityBase() {
 			setELevel(getELevel() + 1)
 			val leftover = getEExperience() - levelThreshold
 			setEExperience(leftover)
-			levelThreshold *= getELevel()
+			levelThreshold = 100 * getELevel()
 		}
 	}
-	
+
 	fun loadPlayer(c: Context) {
 		val v = c.packageManager.getPackageInfo(c.packageName, 0).versionName
 		val file = File(c.filesDir, "${getPlayerID()}.sav")
@@ -45,8 +45,6 @@ class Player() : EntityBase() {
 		setEAttunement		(jsonSave.getInt("ATTUNEMENT"))
 		setEWisdom			(jsonSave.getInt("WISDOM"))
 		setEFaith			(jsonSave.getInt("FAITH"))
-
-
 
 		loadInventory		(c, jsonSave.getJSONObject("INVENTORY"))
 

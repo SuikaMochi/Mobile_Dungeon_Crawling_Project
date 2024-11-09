@@ -3,8 +3,11 @@ package com.mochivated.cungeon_drawling_standalone.src.entities
 import com.mochivated.cungeon_drawling_standalone.src.items.Inventory
 
 open class EntityBase() : Inventory() {
-	private var entityName: String		= "placeholder"
-	
+	private var entityName: String			= "placeholder"
+
+	private var entityHealth: Int			= 0
+	private var entityMana: Int				= 0
+
 	private var entityStrength: Int			= 0
 	private var entityEndurance: Int		= 0
 	private var entityDexterity: Int		= 0
@@ -15,8 +18,13 @@ open class EntityBase() : Inventory() {
 	
 	private var entityExperience: Int		= 0
 	private var entityLevel: Int			= 0
-	
+
+	//Setter
 	fun setEName(name: String)				{ entityName = name }
+
+	fun setEHealth(health: Int)				{ entityHealth = health }
+	fun setEMana(mana: Int)					{ entityMana = mana }
+
 	fun setEStrength(eStrength: Int)		{ entityStrength = eStrength }
 	fun setEEndurance(eEndurance: Int)		{ entityEndurance = eEndurance }
 	fun setEDexterity(eDexterity: Int)		{ entityDexterity = eDexterity }
@@ -27,8 +35,13 @@ open class EntityBase() : Inventory() {
 	
 	fun setEExperience(eExperience: Int)	{ entityExperience = eExperience }
 	fun setELevel(eLevel: Int)				{ entityLevel = eLevel }
-	
+
+	//Getter
 	fun getEName(): String					{ return entityName }
+
+	fun getEHealth(): Int					{ return entityHealth }
+	fun getEMana(): Int						{ return entityMana }
+
 	fun getEStrength(): Int					{ return entityStrength }
 	fun getEEndurance(): Int				{ return entityEndurance }
 	fun getEDexterity(): Int				{ return entityDexterity }
