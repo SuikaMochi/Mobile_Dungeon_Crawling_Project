@@ -1,4 +1,4 @@
-package com.mochivated.cungeon_drawling_standalone.src.items
+package com.mochivated.mobile_dungeon_crawling_project.src.items
 
 open class Item(id: Int) {
 	private var iId : Int		= id

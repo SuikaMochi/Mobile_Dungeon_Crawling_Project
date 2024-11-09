@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.mochivated.cungeon_drawling_standalone"
+    namespace = "com.mochivated.mobile_dungeon_crawling_project"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.mochivated.cungeon_drawling_standalone"
+        applicationId = "com.mochivated.mobile_dungeon_crawling_project"
         minSdk = 29
         targetSdk = 34
         versionCode = 1

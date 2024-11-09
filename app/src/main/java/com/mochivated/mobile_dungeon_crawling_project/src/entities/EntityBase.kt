@@ -1,6 +1,6 @@
-package com.mochivated.cungeon_drawling_standalone.src.entities
+package com.mochivated.mobile_dungeon_crawling_project.src.entities
 
-import com.mochivated.cungeon_drawling_standalone.src.items.Inventory
+import com.mochivated.mobile_dungeon_crawling_project.src.items.Inventory
 
 open class EntityBase() : Inventory() {
 	private var entityName: String			= "placeholder"
@@ -41,6 +41,8 @@ open class EntityBase() : Inventory() {
 
 	fun getEHealth(): Int					{ return entityHealth }
 	fun getEMana(): Int						{ return entityMana }
+
+	fun getESpeed(): Int					{ return (entityEndurance + entityDexterity) / 2 }
 
 	fun getEStrength(): Int					{ return entityStrength }
 	fun getEEndurance(): Int				{ return entityEndurance }

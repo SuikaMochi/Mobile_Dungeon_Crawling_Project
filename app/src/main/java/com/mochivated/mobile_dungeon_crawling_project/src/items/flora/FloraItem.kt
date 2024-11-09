@@ -1,7 +1,7 @@
-package com.mochivated.cungeon_drawling_standalone.src.items.flora
+package com.mochivated.mobile_dungeon_crawling_project.src.items.flora
 
 import android.content.Context
-import com.mochivated.cungeon_drawling_standalone.src.items.Item
+import com.mochivated.mobile_dungeon_crawling_project.src.items.Item
 import org.json.JSONObject
 
 class FloraItem(c: Context, id: Int): Item(id) {
