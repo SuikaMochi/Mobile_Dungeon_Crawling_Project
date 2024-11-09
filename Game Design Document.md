@@ -32,9 +32,13 @@ Y monster will be less likely to be encountered by other players in Z dungeon
 
 ## View:
 UI based
+Overview of buildings/areas in the main hub
+World map for dungeon selection
+Top down "Mystery Dungeon" style in dungeons
+"Final Fantasy" inspired combat UI
 
 ## Platform:
-Android, (iOS to be discussed)
+Android, (iOS maybe)
 
 ## Language:
 Kotlin
@@ -106,10 +110,30 @@ A suggested list may include:
 • Actions
 
 ## Player Properties
-Each property should mention a feedback as a result of the property changing.
+# Statistics
+-Strength: Scaling for Strength based actions and ----
+--(Example: Attacking with a greatsword, moving a builder)
+-Dexterity: Scaling for Dexterity based actions and ----
+--(Example: Attacking for daggers, dodging a trap)
+-Endurance: How far the player can go without resting and eating, increases health, carry capacity
+--(Example: Low endurance makes the player take more damage, unable to carry more items)
+-Attunement: Scaling for Magic based actions and the max amount of Mana
+--(Example: )
+-Faith: Scaling for 
+--(Example: )
+-Wisdom: Scaling for 
+--(Example: )
+
+# Feat
+-to be discussed
+
+# Skills
+-to be discussed
 
 ## Player Rewards (power-ups and pick-ups)
-Make a list of all objects that affect the player in a positive way (e.g., health replenished)
+Money, to buy new gear and survival equipment, potions, etc.
+Experience points, to level up and increase stats, gain new feats and skills
+Monster corpses, to sell for money or consumption within dungeons
 
 ## User Interface (UI)
 This is where you’ll include a description of the user’s control of the game. Think about which buttons on a device would be
