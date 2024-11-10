@@ -5,10 +5,10 @@
 Dungeon Crawler, Survival, Resource Management
 
 ## Game Elements:
-Take quests <br>
-Go into dungeons around the world to explore and map them <br>
-Cull the population of dangerous monsters <br>
-Bring back high value monster corpses back to sell for money and experience points <br>
+Take quests  
+Go into dungeons around the world to explore and map them  
+Cull the population of dangerous monsters  
+Bring back high value monster corpses back to sell for money and experience points  
 
 ## Player:
 - Offline Single Player (target)
@@ -18,11 +18,11 @@ Bring back high value monster corpses back to sell for money and experience poin
   - World, quests and other changes will be synced across devices if enabled
 
 Example:
-Player "Asparagus" takes a quest from the quest board <br>
-example quest: "slay X amount of type of Y monster inside Z dungeon" <br>
-That quest will now be unavailable to all other players <br>
-Upon completing the quest <br>
-Y monster will be less likely to be encountered by other players in Z dungeon <br>
+Player "Asparagus" takes a quest from the quest board  
+example quest: "slay X amount of type of Y monster inside Z dungeon"  
+That quest will now be unavailable to all other players  
+Upon completing the quest  
+Y monster will be less likely to be encountered by other players in Z dungeon  
 
 ----------
 # TECHNICAL SPECS
@@ -31,11 +31,11 @@ Y monster will be less likely to be encountered by other players in Z dungeon <b
 2D UI based
 
 ## View:
-UI based <br>
-Overview of buildings/areas in the main hub <br>
-World map for dungeon selection <br>
-Top down "Mystery Dungeon: Pokemon" style in dungeons <br>
-Combat UI inspired by other “Mystery Dungeon” games <br>
+UI based  
+Overview of buildings/areas in the main hub  
+World map for dungeon selection  
+Top down "Mystery Dungeon: Pokemon" style in dungeons  
+Combat UI inspired by other “Mystery Dungeon” games  
 
 ## Platform:
 Android, (iOS maybe)
@@ -138,9 +138,9 @@ A suggested list may include:
 -to be discussed
 
 ## Player Rewards (power-ups and pick-ups)
-Money, to buy new gear and survival equipment, potions, etc. <br>
-Experience points, to level up and increase stats, gain new feats and skills <br>
-Monster corpses, to sell for money or consumption within dungeons <br>
+Money, to buy new gear and survival equipment, potions, etc.  
+Experience points, to level up and increase stats, gain new feats and skills  
+Monster corpses, to sell for money or consumption within dungeons  
 
 ## User Interface (UI) //Still template text
 This is where you’ll include a description of the user’s control of the game. Think about which buttons on a device would be
