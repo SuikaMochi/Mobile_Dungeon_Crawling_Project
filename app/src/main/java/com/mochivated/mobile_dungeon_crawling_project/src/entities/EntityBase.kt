@@ -1,8 +1,9 @@
 package com.mochivated.mobile_dungeon_crawling_project.src.entities
 
+import android.content.Context
 import com.mochivated.mobile_dungeon_crawling_project.src.items.Inventory
 
-open class EntityBase() : Inventory() {
+open class EntityBase(private val c: Context) : Inventory(c) {
 	private var entityName: String			= "placeholder"
 
 	private var entityHealth: Int			= 0
@@ -42,8 +43,6 @@ open class EntityBase() : Inventory() {
 	fun getEHealth(): Int					{ return entityHealth }
 	fun getEMana(): Int						{ return entityMana }
 
-	fun getESpeed(): Int					{ return (entityEndurance + entityDexterity) / 2 }
-
 	fun getEStrength(): Int					{ return entityStrength }
 	fun getEEndurance(): Int				{ return entityEndurance }
 	fun getEDexterity(): Int				{ return entityDexterity }
@@ -54,4 +53,10 @@ open class EntityBase() : Inventory() {
 	
 	fun getEExperience(): Int				{ return entityExperience }
 	fun getELevel(): Int					{ return entityLevel }
+
+	//Resistances and other combat related Gets
+	fun getESpeed(): Int					{ return (entityEndurance + entityDexterity) / 2 }
+	fun getESlashResistance(): Int			{ return 1 }
+	fun getEPierceResistance(): Int			{ return 1 }
+	fun getEStrikeResistance(): Int			{ return 1 }
 }

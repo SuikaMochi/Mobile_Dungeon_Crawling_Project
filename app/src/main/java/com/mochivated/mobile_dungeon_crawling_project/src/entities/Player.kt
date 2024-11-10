@@ -5,7 +5,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
 
-class Player() : EntityBase() {
+class Player(private val c: Context) : EntityBase(c) {
 	private var playerID: Int		= 1000
 	private var levelThreshold: Int	= 100
 	
@@ -32,7 +32,7 @@ class Player() : EntityBase() {
 		}
 	}
 
-	fun loadPlayer(c: Context) {
+	fun loadPlayer() {
 		val v = c.packageManager.getPackageInfo(c.packageName, 0).versionName
 		val file = File(c.filesDir, "${getPlayerID()}.sav")
 		println("LOADING")
@@ -55,15 +55,16 @@ class Player() : EntityBase() {
 		setEWisdom			(jsonSave.getInt("WISDOM"))
 		setEFaith			(jsonSave.getInt("FAITH"))
 
-		loadInventory		(c, jsonSave.getJSONObject("INVENTORY"))
+		loadInventory		(jsonSave.getJSONObject("INVENTORY"))
+		loadEquipped		(jsonSave.getJSONObject("EQUIPPED"))
 
 		if (jsonSave.getString("VERSION") != v)
 		{
-			savePlayer(c)
+			savePlayer()
 		}
 	}
 
-	fun savePlayer(c: Context) {
+	fun savePlayer() {
 		val v = c.packageManager.getPackageInfo(c.packageName, 0).versionName
 		val saveJson = """{
 			"VERSION": "$v",
@@ -77,7 +78,8 @@ class Player() : EntityBase() {
 			"ATTUNEMENT": ${getEAttunement()},
 			"WISDOM": ${getEWisdom()},
 			"FAITH": ${getEFaith()},
-			"INVENTORY": ${saveInventory()}
+			"INVENTORY": ${saveInventory()},
+			"EQUIPPED": ${saveEquipped()}
 		}""".trimIndent()
 
 		val file = File(c.filesDir, "${getPlayerID()}.sav")

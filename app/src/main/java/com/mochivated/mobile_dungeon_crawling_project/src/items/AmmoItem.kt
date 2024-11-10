@@ -1,7 +1,6 @@
-package com.mochivated.mobile_dungeon_crawling_project.src.items.ammo
+package com.mochivated.mobile_dungeon_crawling_project.src.items
 
 import android.content.Context
-import com.mochivated.mobile_dungeon_crawling_project.src.items.Item
 import org.json.JSONObject
 
 class AmmoItem(c: Context, id: Int): Item(id) {
