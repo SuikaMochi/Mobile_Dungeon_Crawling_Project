@@ -6,11 +6,19 @@ import org.json.JSONObject
 import java.io.File
 
 class Player(private val c: Context) : EntityBase(c) {
-	private var playerID: Int		= 1000
-	private var levelThreshold: Int	= 100
+	private var playerID: Int			= 1000
+	private var levelThreshold: Int		= 100
+	private var playerFatigueMax: Int	= 1000
+	private var playerFatigue: Int		= playerFatigueMax
 	
 	private fun setPlayerID(id: Int)	{ playerID = id }
 	private fun getPlayerID(): Int		{ return playerID }
+
+	fun setPlayerFatigueMax(fatigue: Int)	{ playerFatigueMax = fatigue }
+	fun	getPlayerFatigueMax(): Int			{ return playerFatigueMax }
+
+	fun setPlayerFatigue(fatigue: Int)	{ playerFatigue = fatigue }
+	fun	getPlayerFatigue(): Int			{ return playerFatigue }
 
 	fun addExperience(exp: Int) {
 		setEExperience(getEExperience() + exp)
@@ -23,9 +31,14 @@ class Player(private val c: Context) : EntityBase(c) {
 		}
 	}
 
+	fun loseFatigue(loss: Int) { //Used for variable difficulty setting "Fatigue decrease speed"
+		var amount: Int = 0
+		amount = ((getEEndurance().toDouble() / getPlayerFatigueMax()) * loss).toInt()
+		setPlayerFatigue(getPlayerFatigue() - amount)
+	}
+
 	fun loseExperience(loss: Int) { //Used for variable difficulty setting "Lose EXP progress on death"
-		when (loss)
-		{
+		when (loss) {
 			1 -> setEExperience(getEExperience())	//No loss
 			2 -> setEExperience(getEExperience()/2)	//Lose half
 			3 -> setEExperience(0)					//Lose all
@@ -43,17 +56,20 @@ class Player(private val c: Context) : EntityBase(c) {
 		setPlayerID			(jsonSave.getInt("ID"))
 		
 		setEName			(jsonSave.getString("NAME"))
-		setEExperience		(jsonSave.getInt("EXPERIENCE"))
-		setELevel			(jsonSave.getInt("LEVEL"))
+		setEExperience		(setVariable(jsonSave, "EXPERIENCE"))
+		setELevel			(setVariable(jsonSave,"LEVEL"))
 		levelThreshold *= getELevel()
+
+		setPlayerFatigueMax	(getEEndurance() * 100)
+		setPlayerFatigue	(setVariable(jsonSave,"FATIGUE_CUR"))
+
+		setEStrength		(setVariable(jsonSave,"STRENGTH"))
+		setEDexterity		(setVariable(jsonSave,"DEXTERITY"))
+		setEEndurance		(setVariable(jsonSave,"ENDURANCE"))
 		
-		setEStrength		(jsonSave.getInt("STRENGTH"))
-		setEDexterity		(jsonSave.getInt("DEXTERITY"))
-		setEEndurance		(jsonSave.getInt("ENDURANCE"))
-		
-		setEAttunement		(jsonSave.getInt("ATTUNEMENT"))
-		setEWisdom			(jsonSave.getInt("WISDOM"))
-		setEFaith			(jsonSave.getInt("FAITH"))
+		setEAttunement		(setVariable(jsonSave,"ATTUNEMENT"))
+		setEWisdom			(setVariable(jsonSave,"WISDOM"))
+		setEFaith			(setVariable(jsonSave,"FAITH"))
 
 		loadInventory		(jsonSave.getJSONObject("INVENTORY"))
 		loadEquipped		(jsonSave.getJSONObject("EQUIPPED"))
@@ -72,6 +88,8 @@ class Player(private val c: Context) : EntityBase(c) {
 			"NAME": "${getEName()}",
 			"EXPERIENCE": ${getEExperience()},
 			"LEVEL": ${getELevel()},
+			"FATIGUE_MAX": ${getPlayerFatigueMax()},
+			"FATIGUE_CUR": ${getPlayerFatigue()},
 			"STRENGTH": ${getEStrength()},
 			"DEXTERITY": ${getEDexterity()},
 			"ENDURANCE": ${getEEndurance()},
@@ -88,5 +106,13 @@ class Player(private val c: Context) : EntityBase(c) {
 		println("SAVING")
 		println(JSONObject(saveJson).toString())
 		println(file.path)
+	}
+
+	private fun setVariable(j: JSONObject, v: String): Int {
+		return if (j.has(v)) {
+			j.getInt(v)
+		} else {
+			0
+		}
 	}
 }
