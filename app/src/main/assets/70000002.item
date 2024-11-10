@@ -1,8 +1,9 @@
 {
   "ID": 70000002,
   "RARITY": 5,
-  "NAME": "No weapon",
+  "NAME": "Empty",
   "DESC": "No weapon equipped",
+  "W_SIZE": 0,
   "W_TYPE": 0,
   "W_DAMAGE_TYPE": 2,
   "W_DAMAGE_BASE": 1

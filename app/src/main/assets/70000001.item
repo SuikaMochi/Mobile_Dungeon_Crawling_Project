@@ -3,7 +3,7 @@
   "RARITY": 5,
   "NAME": "Debug Sword",
   "DESC": "Sword Item for Debug",
-  "EQUIPABLE": true,
+  "W_SIZE": 0,
   "W_TYPE": 0,
   "W_DAMAGE_TYPE": 0,
   "W_DAMAGE_BASE": 1
