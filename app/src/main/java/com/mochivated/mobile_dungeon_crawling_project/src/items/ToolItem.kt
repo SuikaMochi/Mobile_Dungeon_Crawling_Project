@@ -1,7 +1,6 @@
-package com.mochivated.mobile_dungeon_crawling_project.src.items.tool
+package com.mochivated.mobile_dungeon_crawling_project.src.items
 
 import android.content.Context
-import com.mochivated.mobile_dungeon_crawling_project.src.items.Item
 import org.json.JSONObject
 
 class ToolItem(c: Context, id: Int): Item(id) {
