@@ -56,7 +56,24 @@ open class EntityBase(private val c: Context) : Inventory(c) {
 
 	//Resistances and other combat related Gets
 	fun getESpeed(): Int					{ return (entityEndurance + entityDexterity) / 2 }
-	fun getESlashResistance(): Int			{ return 1 }
-	fun getEPierceResistance(): Int			{ return 1 }
-	fun getEStrikeResistance(): Int			{ return 1 }
+
+	fun getESlashResistance(): Int			{
+		return getHeadGear().getGSlashResistance() + getChestGear().getGSlashResistance() +
+				getLegGear().getGSlashResistance() + getShieldGear().getGSlashResistance()}
+	fun getEPierceResistance(): Int			{
+		return getHeadGear().getGPierceResistance() + getChestGear().getGPierceResistance() +
+				getLegGear().getGPierceResistance() + getShieldGear().getGPierceResistance()}
+	fun getEBashResistance(): Int			{
+		return getHeadGear().getGBashResistance() + getChestGear().getGBashResistance() +
+				getLegGear().getGBashResistance() + getShieldGear().getGBashResistance()}
+
+	fun getEFireResistance(): Int			{
+		return getHeadGear().getGFireResistance() + getChestGear().getGFireResistance() +
+				getLegGear().getGFireResistance() + getShieldGear().getGFireResistance()}
+	fun getEIceResistance(): Int			{
+		return getHeadGear().getGIceResistance() + getChestGear().getGIceResistance() +
+				getLegGear().getGIceResistance() + getShieldGear().getGIceResistance()}
+	fun getEShockResistance(): Int			{
+		return getHeadGear().getGShockResistance() + getChestGear().getGShockResistance() +
+				getLegGear().getGShockResistance() + getShieldGear().getGShockResistance()}
 }

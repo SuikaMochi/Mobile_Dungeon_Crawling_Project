@@ -26,6 +26,30 @@ open class Inventory(private val c: Context) {
 	fun setLastItemAdd(name: String) { lastItemAdd = name }
 	fun setLastItemRem(name: String) { lastItemRem = name }
 
+	fun getHeadGear(): GearItem {
+		return headGearItem
+	}
+
+	fun getChestGear(): GearItem {
+		return headGearItem
+	}
+
+	fun getLegGear(): GearItem {
+		return headGearItem
+	}
+
+	fun getShieldGear(): GearItem {
+		return headGearItem
+	}
+
+	fun getRHandWeapon(): WeaponItem {
+		return rightHandWeaponItem
+	}
+
+	fun getLHandWeapon(): WeaponItem {
+		return leftHandWeaponItem
+	}
+
 	fun addItem(id: Int, amount: Int) {
 		when (id.toString()[0].code) {
 			1 -> if (getIndex(id) == -1) {
