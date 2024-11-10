@@ -1,7 +1,7 @@
 {
   "ID": 40000002,
   "RARITY": 5,
-  "NAME": "No Chest Gear",
+  "NAME": "Empty",
   "DESC": "No chest gear equipped",
   "G_SLOT": 1,
   "G_SLASH_RES": 0,
