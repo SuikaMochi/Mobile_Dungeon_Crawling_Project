@@ -30,7 +30,7 @@ class GearItem(c: Context, id: Int): Item(id) {
 	fun getGShockResistance(): Int		{ return gShockResistance }
 
 	init {
-		val jsonSave = JSONObject(c.assets.open("${id}.item").bufferedReader().readText())
+		val jsonSave = JSONObject(c.assets.open("items/gear/${id}.item").bufferedReader().readText())
 
 		setNAME(jsonSave.getString("NAME"))
 		setDESC(jsonSave.getString("DESC"))
