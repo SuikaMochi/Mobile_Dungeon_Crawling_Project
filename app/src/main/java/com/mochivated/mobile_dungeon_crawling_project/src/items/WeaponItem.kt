@@ -20,7 +20,8 @@ class WeaponItem(c: Context, id: Int) : Item(id) {
 	fun getWDamageBase(): Int		{ return wDamageBase }
 	
 	init {
-		val jsonSave = JSONObject(c.assets.open("${id}.item").bufferedReader().readText())
+		val jsonSave = JSONObject(c.assets.open("items/weapon/${id}.item").bufferedReader().readText())
+
 		setNAME(jsonSave.getString("NAME"))
 		setDESC(jsonSave.getString("DESC"))
 		setID(jsonSave.getInt("ID"))

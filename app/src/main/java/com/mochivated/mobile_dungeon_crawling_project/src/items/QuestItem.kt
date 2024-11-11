@@ -6,7 +6,7 @@ import org.json.JSONObject
 class QuestItem(c: Context, id: Int): Item(id) {
 	
 	init {
-		val jsonSave = JSONObject(c.openFileInput("com/mochivated/cungeon_drawling_standalone/src/items/quest/$id.item").bufferedReader().readText())
+		val jsonSave = JSONObject(c.assets.open("items/quest/${id}.item").bufferedReader().readText())
 
 		setNAME(jsonSave.getString("NAME"))
 		setDESC(jsonSave.getString("DESC"))

@@ -1,11 +1,14 @@
 package com.mochivated.mobile_dungeon_crawling_project.src.entities
 
 import android.content.Context
+import com.mochivated.mobile_dungeon_crawling_project.src.entities.settings.Settings
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
 
 class Player(private val c: Context) : EntityBase(c) {
+	private val pSettings: Settings = Settings(c)
+
 	private var playerID: Int			= 1000
 	private var levelThreshold: Int		= 100
 	private var playerFatigueMax: Int	= 1000
@@ -31,12 +34,14 @@ class Player(private val c: Context) : EntityBase(c) {
 		}
 	}
 
+	//To be changed later to actually work as intended
 	fun loseFatigue(loss: Int) { //Used for variable difficulty setting "Fatigue decrease speed"
 		var amount: Int = 0
-		amount = ((getEEndurance().toDouble() / getPlayerFatigueMax()) * loss).toInt()
+		amount = ((getEEndurance().toDouble() / getPlayerFatigueMax()) * pSettings.getFatigueLossSet()).toInt()
 		setPlayerFatigue(getPlayerFatigue() - amount)
 	}
 
+	//To be changed later to actually work as intended
 	fun loseExperience(loss: Int) { //Used for variable difficulty setting "Lose EXP progress on death"
 		when (loss) {
 			1 -> setEExperience(getEExperience())	//No loss

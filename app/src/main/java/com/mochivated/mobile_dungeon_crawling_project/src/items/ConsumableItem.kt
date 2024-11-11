@@ -17,7 +17,8 @@ class ConsumableItem(c: Context, id: Int): Item(id) {
 	fun getCEffectModify(): Int			{ return cEffectModify }
 	
 	init {
-		val jsonSave = JSONObject(c.openFileInput("com/mochivated/cungeon_drawling_standalone/src/items/consumable/$id.item").bufferedReader().readText())
+		val jsonSave = JSONObject(c.assets.open("items/consumable/${id}.item").bufferedReader().readText())
+
 		setCType(jsonSave.getInt("W_TYPE"))
 		setCEffectBase(jsonSave.getInt("W_DAMAGE_TYPE"))
 		setCEffectModify(jsonSave.getInt("W_DAMAGE_BASE"))
