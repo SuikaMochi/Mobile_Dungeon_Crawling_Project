@@ -1,13 +1,12 @@
-package com.mochivated.mobile_dungeon_crawling_project.src.items.quest
+package com.mochivated.mobile_dungeon_crawling_project.src.items
 
 import android.content.Context
-import com.mochivated.mobile_dungeon_crawling_project.src.items.Item
 import org.json.JSONObject
 
 class QuestItem(c: Context, id: Int): Item(id) {
 	
 	init {
-		val jsonSave = JSONObject(c.openFileInput("com/mochivated/cungeon_drawling_standalone/src/items/quest/$id.item").bufferedReader().readText())
+		val jsonSave = JSONObject(c.assets.open("items/quest/${id}.item").bufferedReader().readText())
 
 		setNAME(jsonSave.getString("NAME"))
 		setDESC(jsonSave.getString("DESC"))

@@ -1,0 +1,13 @@
+{
+  "ID": 40000004,
+  "RARITY": 5,
+  "NAME": "Empty",
+  "DESC": "No shield gear equipped",
+  "G_SLOT": 3,
+  "G_SLASH_RES": 0,
+  "G_PIERCE_RES": 0,
+  "G_BASH_RES": 0,
+  "G_FIRE_RES": 0,
+  "G_ICE_RES": 0,
+  "G_SHOCK_RES": 0
+}
