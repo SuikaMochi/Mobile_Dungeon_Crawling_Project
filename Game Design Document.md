@@ -1,20 +1,23 @@
 # Game Name:
-
+To Be Discussed  
 
 ## Genre:
-Dungeon Crawler, Survival, Resource Management
+Dungeon Crawler, Survival, Resource Management  
+
+## Inspiration:
+Etrian Odyssey, Etrian Mystery Dungeon and other Etrian Games  
 
 ## Game Elements:
 Take quests  
 Go into dungeons around the world to explore and map them  
 Cull the population of dangerous monsters  
-Bring back high value monster corpses back to sell for money and experience points  
+Bring back high value monster corpses back to sell for money  
 
 ## Player:
 - Offline Single Player (target)
   - Local world, quests and changes
 
-- Online Single Player
+- Online Single Player (optional)
   - World, quests and other changes will be synced across devices if enabled
 
 Example:
