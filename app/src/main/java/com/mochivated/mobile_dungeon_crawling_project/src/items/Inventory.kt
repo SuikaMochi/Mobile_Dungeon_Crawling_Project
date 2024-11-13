@@ -54,37 +54,37 @@ open class Inventory(private val c: Context) {
 		when (id.toString()[0].code) {
 			1 -> if (getIndex(id) == -1) {
 				ammoInventory.addElement(AmmoItem(c , id))
-			} else {
+				} else {
 				ammoInventory[getIndex(id)].addAmount(amount - 1)
 			}
 			2 -> if (getIndex(id) == -1) {
 				consumableInventory.addElement(ConsumableItem(c, id))
-			} else {
+				} else {
 				consumableInventory[getIndex(id)].addAmount(amount - 1)
 			}
 			3 -> if (getIndex(id) == -1) {
 				floraInventory.addElement(FloraItem(c, id))
-			} else {
+				} else {
 				floraInventory[getIndex(id)].addAmount(amount - 1)
 			}
 			4 -> if (getIndex(id) == -1) {
 				gearInventory.addElement(GearItem(c, id))
-			} else {
+				} else {
 				gearInventory[getIndex(id)].addAmount(amount - 1)
 			}
 			5 -> if (getIndex(id) == -1) {
 				questInventory.addElement(QuestItem(c, id))
-			} else {
+				} else {
 				questInventory[getIndex(id)].addAmount(amount - 1)
 			}
 			6 -> if (getIndex(id) == -1) {
 				toolInventory.addElement(ToolItem(c, id))
-			} else {
+				} else {
 				toolInventory[getIndex(id)].addAmount(amount - 1)
 			}
 			7 -> if (getIndex(id) == -1) {
 				weaponInventory.addElement(WeaponItem(c, id))
-			} else {
+				} else {
 				weaponInventory[getIndex(id)].addAmount(amount - 1)
 			}
 		}
