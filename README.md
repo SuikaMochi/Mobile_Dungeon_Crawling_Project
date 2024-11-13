@@ -1,4 +1,5 @@
-# This is going to serve as an internal Wiki
+# Internal Wiki
+(Since a free Github account cannot have a private repo wiki...)
 
 ## Item ID
 
