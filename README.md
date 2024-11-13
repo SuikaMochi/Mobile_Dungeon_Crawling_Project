@@ -1,3 +1,5 @@
+(How anything works within this game, is subject to change)
+
 This is just a game project that I'm working on
 Inspired by the Etrian games, such as Etrian Mystery Dungeon, Etrian Odyssey, etc.
 
