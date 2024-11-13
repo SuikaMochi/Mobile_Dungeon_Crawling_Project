@@ -12,12 +12,13 @@ import androidx.core.view.WindowInsetsCompat
 import com.mochivated.mobile_dungeon_crawling_project.src.entities.Player
 
 class MainActivity : AppCompatActivity() {
-	private val player: Player = Player()
+	private var player: Player? = null
 	private var openScreen: View? = null
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		enableEdgeToEdge()
+		player = Player(applicationContext)
 		setContentView(R.layout.activity_main)
 		
 		val loadingScreen: View = findViewById(R.id.loading_screen)
@@ -30,26 +31,28 @@ class MainActivity : AppCompatActivity() {
 		val startButton: Button = findViewById(R.id.startButton)
 
 		saveButton.setOnClickListener {
-			try {
-				player.setEName(findViewById<EditText>(R.id.nameInput).text.toString())
-				player.setEStrength(findViewById<SeekBar>(R.id.strenthBar).progress)
-				player.setEDexterity(findViewById<SeekBar>(R.id.dexterityBar).progress)
-				player.setEEndurance(findViewById<SeekBar>(R.id.enduranceBar).progress)
-				player.setEAttunement(findViewById<SeekBar>(R.id.attunementBar).progress)
-				player.setEFaith(findViewById<SeekBar>(R.id.faithBar).progress)
-				player.setEWisdom(findViewById<SeekBar>(R.id.wisdomBar).progress)
-				player.setELevel(1)
-				player.savePlayer(applicationContext)
-				switchTo(successScreen)
-			} catch (e: Exception) {
-				switchTo(failScreen)
-				println(e.message)
+			if (findViewById<EditText>(R.id.nameInput).text.isNotEmpty()) {
+				try {
+					player?.setEName(findViewById<EditText>(R.id.nameInput).text.toString())
+					player?.setEStrength(findViewById<SeekBar>(R.id.strenthBar).progress)
+					player?.setEDexterity(findViewById<SeekBar>(R.id.dexterityBar).progress)
+					player?.setEEndurance(findViewById<SeekBar>(R.id.enduranceBar).progress)
+					player?.setEAttunement(findViewById<SeekBar>(R.id.attunementBar).progress)
+					player?.setEFaith(findViewById<SeekBar>(R.id.faithBar).progress)
+					player?.setEWisdom(findViewById<SeekBar>(R.id.wisdomBar).progress)
+					player?.setELevel(1)
+					player?.savePlayer()
+					switchTo(successScreen)
+				} catch (e: Exception) {
+					switchTo(failScreen)
+					println(e.message)
+				}
 			}
 		}
 
 		startButton.setOnClickListener {
 			try {
-				player.loadPlayer(applicationContext)
+				player?.loadPlayer()
 				switchTo(successScreen)
 			} catch (e: Exception) {
 				switchTo(characterCreatorScreen)
