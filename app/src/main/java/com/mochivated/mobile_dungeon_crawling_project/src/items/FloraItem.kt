@@ -1,13 +1,12 @@
-package com.mochivated.mobile_dungeon_crawling_project.src.items.flora
+package com.mochivated.mobile_dungeon_crawling_project.src.items
 
 import android.content.Context
-import com.mochivated.mobile_dungeon_crawling_project.src.items.Item
 import org.json.JSONObject
 
 class FloraItem(c: Context, id: Int): Item(id) {
 	
 	init {
-		val jsonSave = JSONObject(c.openFileInput("com/mochivated/cungeon_drawling_standalone/src/items/flora/$id.item").bufferedReader().readText())
+		val jsonSave = JSONObject(c.assets.open("items/flora/${id}.item").bufferedReader().readText())
 
 		setNAME(jsonSave.getString("NAME"))
 		setDESC(jsonSave.getString("DESC"))
