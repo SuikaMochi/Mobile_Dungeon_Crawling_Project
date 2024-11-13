@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.mochivated.mobile_dungeon_crawling_project.src.entities.Player
+import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity() {
 	private var player: Player? = null
@@ -51,12 +52,15 @@ class MainActivity : AppCompatActivity() {
 		}
 
 		startButton.setOnClickListener {
-			try {
-				player?.loadPlayer()
-				switchTo(successScreen)
-			} catch (e: Exception) {
-				switchTo(characterCreatorScreen)
-				println(e.message)
+			switchTo(loadingScreen)
+			runBlocking {
+				try {
+					player?.loadPlayer()
+					switchTo(successScreen)
+				} catch (e: Exception) {
+					switchTo(characterCreatorScreen)
+					println(e.message)
+				}
 			}
 		}
 
